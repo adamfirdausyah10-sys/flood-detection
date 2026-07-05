@@ -132,11 +132,7 @@ with right:
                     label = "Flood"
                     confidence = (1 - prediction) * 100
 
-                confidence_text = (
-                    "> 99.99%"
-                    if confidence >= 99.995
-                    else f"{confidence:.2f}%"
-                )
+                confidence_text = f"{confidence:.2f}%"
 
                 st.success("Prediction completed successfully.")
 
