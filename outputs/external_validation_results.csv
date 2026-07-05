@@ -1,0 +1,11 @@
+filename,expected,predicted,confidence_percent,raw_output,correct,error
+banjir-bandang-semarang-4_169.jpeg,Flood,Flood,100.0,0.0,True,
+Banjir_menggenangi_sejumlah_lokasi_jalan_di_Semarang-2025_10_31-16_19_09_ef5217c5538914bbcb6e91e5b4e372d0.jpg,Flood,Flood,100.0,0.0,True,
+images (1).jpg,Flood,Flood,100.0,0.0,True,
+images.jpg,Flood,Flood,99.9762,0.000238,True,
+IMG-20240315-WA0036-3922881559.jpg,Flood,Flood,96.5459,0.034541,True,
+087408600_1595587186-jon-flobrant-rB7-LCa_diU-unsplash.jpg,Non Flood,Flood,99.2406,0.007594,False,
+images (1).jpg,Non Flood,Non Flood,99.5313,0.995313,True,
+images(2).jpg,Non Flood,Flood,100.0,0.0,False,
+MPRDPRBuilding.jpg,Non Flood,Flood,99.4489,0.005511,False,
+Ngobaran_Beach.jpg,Non Flood,Non Flood,99.9715,0.999715,True,
