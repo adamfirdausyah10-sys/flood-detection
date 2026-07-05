@@ -1,4 +1,5 @@
 import os
+import argparse
 import numpy as np
 import tensorflow as tf
 import matplotlib.pyplot as plt
@@ -13,7 +14,20 @@ from sklearn.metrics import (
 # KONFIGURASI
 # =========================
 
-DATASET_PATH = r"C:\archive (1)\Dataset"
+parser = argparse.ArgumentParser(
+    description="Evaluate Flood Detection model"
+)
+
+parser.add_argument(
+    "--dataset",
+    type=str,
+    required=True,
+    help="Path menuju folder dataset"
+)
+
+args = parser.parse_args()
+
+DATASET_PATH = args.dataset
 MODEL_PATH = "model/efficientnetv2_flood_model.keras"
 OUTPUT_DIR = "outputs"
 
