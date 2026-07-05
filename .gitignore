@@ -10,3 +10,9 @@ archive/
 *.zip
 *.rar
 *.7z
+
+# External validation images
+sample_images/
+
+# Generated Grad-CAM images
+outputs/gradcam/

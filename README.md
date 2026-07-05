@@ -138,7 +138,7 @@ Setelah itu aplikasi akan terbuka melalui browser.
 Untuk menjalankan evaluasi:
 
 ```bash
-python evaluate_model.py
+python evaluate_model.py --dataset "PATH_TO_DATASET"
 ```
 
 Hasil evaluasi akan disimpan pada folder:
@@ -148,7 +148,50 @@ outputs/
 ```
 
 ---
+## 🌐 External Validation
 
+Selain internal validation, dilakukan pengujian tambahan menggunakan 10 gambar dari luar dataset training dan validation.
+
+Hasil pengujian:
+
+- Total gambar: 10
+- Prediksi benar: 7
+- Prediksi salah: 3
+- Accuracy: 70.00%
+
+Rincian:
+
+- Flood: 5 dari 5 diprediksi benar
+- Non Flood: 2 dari 5 diprediksi benar
+- Terdapat 3 false positive, yaitu gambar Non Flood yang diprediksi sebagai Flood
+
+> Catatan: pengujian eksternal hanya menggunakan 10 gambar, sehingga diposisikan sebagai small external sanity check dan bukan benchmark performa dunia nyata.
+
+Hasil pengujian tersedia pada:
+
+```text
+outputs/
+├── external_validation_results.csv
+└── external_confusion_matrix.png
+```
+
+---
+
+## 🔥 Grad-CAM Error Analysis
+
+Grad-CAM digunakan sebagai analisis kualitatif terhadap tiga prediksi eksternal yang salah.
+
+Ketiga kasus merupakan gambar Non Flood yang diprediksi sebagai Flood dengan confidence tinggi.
+
+Temuan awal menunjukkan area aktivasi yang berbeda pada setiap kasus:
+
+- Gambar sungai: aktivasi kuat pada area air dan arus
+- Gambar jalan tol: aktivasi pada koridor jalan dan sebagian area perspektif scene
+- Gambar gedung: aktivasi kuat pada bagian struktur atau fasad bangunan
+
+Hasil ini menunjukkan bahwa kesalahan model tidak dapat dijelaskan hanya dengan satu pola sederhana seperti "semua air dianggap banjir".
+
+> Grad-CAM digunakan sebagai alat interpretasi kualitatif dan tidak membuktikan bahwa model memahami objek atau konsep tertentu secara semantik.
 ## ⚠️ Keterbatasan
 
 Model merupakan binary image classifier yang hanya membedakan:
@@ -176,8 +219,7 @@ Pengembangan selanjutnya dapat mencakup:
 - Pengujian tambahan menggunakan gambar di luar dataset
 - Analisis kesalahan klasifikasi
 - Peningkatan antarmuka aplikasi
-- Explainability menggunakan Grad-CAM
-
+- Analisis error menggunakan Grad-CAM telah diimplementasikan
 ---
 
 ## 👥 Project
